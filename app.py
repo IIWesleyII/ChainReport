@@ -77,13 +77,24 @@ def main():
         print(f"Latest block: {result}")
 
     elif action_choice == "2":
-        print("Get block")
+        block_number = int(
+            input("Enter block number: ").strip()
+        )
+
+        result = chain.get_block(block_number)
+        print(result)
 
     elif action_choice == "3":
-        print("Get transaction")
+        tx_id = input("Enter transaction ID/hash: ").strip()
+        result = chain.get_transaction(tx_id)
+
+        print(result)
 
     elif action_choice == "4":
-        print("Get balance")
+        address = input("Enter wallet address: ").strip()
+        result = chain.get_balance(address)
+
+        print(f"Balance: {result}")
 
     else:
         print("Invalid action.")
